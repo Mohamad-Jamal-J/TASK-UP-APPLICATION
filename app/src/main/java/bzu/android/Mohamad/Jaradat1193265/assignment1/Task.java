@@ -12,7 +12,7 @@ public class Task {
     private String dateDue;
     private int priority;
     private String dateCreated;
-    private static int incrementalId=1;
+    public static int incrementalId=1;
 
     private boolean isDone;
 
@@ -99,5 +99,23 @@ public class Task {
         return "\nTask: " + title +
                         "\n\nDue: " + dateDue+"\t\t\t\t\t\t\t\tPriority: " + prioString ;
     }
+    public String speacialToString() {
+        String prioString;
+        if (priority==1)
+            prioString="Low";
+        else if (priority==2)
+            prioString="Mid";
+        else
+            prioString="High";
+        return
+                "ID: " + identifier +
+                "\nTitle: " + title +
+                "\nDetails: " + detail  +
+                "\nDate Due: " + dateDue+
+                "\nPriority: " + prioString +
+                "\nDate Created: " + dateCreated  +
+                "\nIs Done: " + isDone;
+    }
+
 
 }

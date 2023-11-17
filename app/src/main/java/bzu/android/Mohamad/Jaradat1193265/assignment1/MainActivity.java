@@ -1,8 +1,8 @@
 package bzu.android.Mohamad.Jaradat1193265.assignment1;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -60,16 +60,29 @@ public class MainActivity extends AbstractTaskManage {
 
         if (tasksList==null)
             tasksList=new ArrayList<>();
-
-        Log.d(".MainActivity",tasksList.size()+"----------------------------------------");
-
+        else {
+            int maxID = Task.incrementalId;
+            for (Task currTask:tasksList  ) {
+                if (maxID < currTask.getIdentifier())
+                    maxID =currTask.getIdentifier();
+            }
+            Task.incrementalId =maxID+1;
+        }
         JSON_STRING = sharedPreferences.getString(DONE_TASK_LIST_KEY,null);
         doneTasksList = GSON.fromJson(JSON_STRING,objectType);
 
         if (doneTasksList==null)
             doneTasksList=new ArrayList<>();
+        else {
+            int maxID = Task.incrementalId;
+            for (Task currTask:doneTasksList  ) {
+                if (maxID < currTask.getIdentifier())
+                    maxID =currTask.getIdentifier();
+            }
+            Task.incrementalId =maxID+1;
+        }
 
-        Log.d(".MainActivity",doneTasksList.size()+"----------------------------------------");
+
 
     }
     private void hookLayouts(){
@@ -116,24 +129,36 @@ public class MainActivity extends AbstractTaskManage {
                    checkedTasks.remove(task);
                }
            }else {
-               Intent intent = new Intent(this, ViewTaskDetailsActivity.class);
-
-               Gson GSON = new Gson();
-
-               String JSON_STRING  = GSON.toJson(tasksList);
-               intent.putExtra(TASK_LIST_KEY,JSON_STRING);
-
-               JSON_STRING = GSON.toJson(doneTasksList);
-               intent.putExtra(DONE_TASK_LIST_KEY,JSON_STRING);
-
-               intent.putExtra(IS_DUE_VIEW,isDueView+"");
-               intent.putExtra(POSITION,position+"");
-
-               startActivity(intent);
+                   AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                   Task task = list.get(position);
+                   builder.setMessage(task.speacialToString()).setTitle("Task Information");
+                   AlertDialog dialog = builder.create();
+                   dialog.show();
             }
         };
 
+        AdapterView.OnItemLongClickListener itemLongClickListener = (parent, view, position, id)->{
+            if (!editModeOn){
+                Intent intent = new Intent(this, ViewTaskDetailsActivity.class);
+
+                Gson GSON = new Gson();
+
+                String JSON_STRING = GSON.toJson(tasksList);
+                intent.putExtra(TASK_LIST_KEY, JSON_STRING);
+
+                JSON_STRING = GSON.toJson(doneTasksList);
+                intent.putExtra(DONE_TASK_LIST_KEY, JSON_STRING);
+
+                intent.putExtra(IS_DUE_VIEW, isDueView + "");
+                intent.putExtra(POSITION, position + "");
+
+                startActivity(intent);
+            }
+            return true;
+        };
+
         tasksListView.setOnItemClickListener(itemClickListener);
+        tasksListView.setOnItemLongClickListener(itemLongClickListener);
         tasksListView.setAdapter(taskListAdapter);
     }
 
