@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="custom_textview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="custom_radioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="buttonTint" >#4A4A4A</item>
+    </style>
+
+    <style name="custom_editText">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textColorHint">#94000000</item>
+        <item name="android:backgroundTint">#000000</item>
+    </style>
+
+    <style name="custom_button_fill">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+</resources>

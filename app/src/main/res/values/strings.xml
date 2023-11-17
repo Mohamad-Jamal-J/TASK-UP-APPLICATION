@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">TASK-UP-Application</string>
+    <string name="add_task_main">Add Task</string>
+    <string name="taskListLabel">Your List: </string>
+    <string name="cleanTasksBtn">Clean Selected</string>
+    <string name="icon_showing_management">icon showing management</string>
+    <string name="add_task_create">Add Task</string>
+    <string name="cancel">Cancel</string>
+    <string name="radioText3">High</string>
+    <string name="radioText2">Medium</string>
+    <string name="radioText1">Low</string>
+    <string name="radiosLabel">Task Priority:</string>
+    <string name="task_due_date">Task Due Date:</string>
+    <string name="details_optional">Details (Optional)</string>
+    <string name="task_title">Task Title</string>
+    <string name="create_a_new_task">Create A New Task</string>
+    <string name="cancel_and_return">cancel and return</string>
+    <string name="edit_mode">edit Mode</string>
+    <string name="update_task">Update Task</string>
+    <string name="view_edit_task">View &amp; Edit Task</string>
+    <string name="due">Due</string>
+    <string name="done">Done</string>
+    <string name="task_status">Task Status:</string>
+    <string name="icon_showing_eye_view">icon showing eye view</string>
+    <string name="icon_showing_time_management_in_head">Icon showing time management in head</string>
+    <string name="add_new_task_icon">add new task icon</string>
+    <string name="view_history">View History</string>
+    <string name="set_done">Set As Done</string>
+    <string name="view_due_tasks">View Due Tasks</string>
+</resources>
