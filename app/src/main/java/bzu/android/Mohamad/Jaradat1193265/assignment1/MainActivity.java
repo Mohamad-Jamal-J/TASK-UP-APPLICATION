@@ -2,6 +2,7 @@ package bzu.android.Mohamad.Jaradat1193265.assignment1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,11 +25,10 @@ public class MainActivity extends AbstractTaskManage {
     private ListView tasksListView;
     private Button addTaskViewButton;
     private Button cleanCheckedButton;
-    private Button setDoneButton;
+    private Button setDoneDueButton;
     private Button viewHistoryButton;
     private Button viewDueTasksButton;
     private ImageButton editTasksButton;
-    private List<Task> tasksList;
     private ArrayAdapter<Task> taskListAdapter;
     private ArrayList<Task> checkedTasks;
     private boolean editModeOn;
@@ -61,18 +61,23 @@ public class MainActivity extends AbstractTaskManage {
         if (tasksList==null)
             tasksList=new ArrayList<>();
 
+        Log.d(".MainActivity",tasksList.size()+"----------------------------------------");
+
         JSON_STRING = sharedPreferences.getString(DONE_TASK_LIST_KEY,null);
         doneTasksList = GSON.fromJson(JSON_STRING,objectType);
 
         if (doneTasksList==null)
             doneTasksList=new ArrayList<>();
+
+        Log.d(".MainActivity",doneTasksList.size()+"----------------------------------------");
+
     }
     private void hookLayouts(){
         tasksListView = findViewById(R.id.tasksListView);
         addTaskViewButton= findViewById(R.id.addTaskViewButton);
         cleanCheckedButton=findViewById(R.id.cleanCheckedTasksButton);
         editTasksButton=findViewById(R.id.editTaskButton);
-        setDoneButton = findViewById(R.id.setDoneButton);
+        setDoneDueButton = findViewById(R.id.setDoneButton);
         viewHistoryButton =findViewById(R.id.viewHistoryButton);
         viewDueTasksButton =findViewById(R.id.viewDueTasksButton);
         titleTextView = findViewById(R.id.titleTextView);
@@ -121,7 +126,6 @@ public class MainActivity extends AbstractTaskManage {
                JSON_STRING = GSON.toJson(doneTasksList);
                intent.putExtra(DONE_TASK_LIST_KEY,JSON_STRING);
 
-
                intent.putExtra(IS_DUE_VIEW,isDueView+"");
                intent.putExtra(POSITION,position+"");
 
@@ -151,13 +155,15 @@ public class MainActivity extends AbstractTaskManage {
 
         });
 
-        setDoneButton.setOnClickListener(action->{
+        setDoneDueButton.setOnClickListener(action->{
             for (Task checkedTask : checkedTasks) {
-                checkedTask.setDone(true);
-                if (isDueView)
+                if (isDueView) {
                     doneTasksList.add(checkedTask);
-                else
+                    checkedTask.setDone(true);
+                }else {
                     tasksList.add(checkedTask);
+                    checkedTask.setDone(false);
+                }
                 taskListAdapter.remove(checkedTask);
             }
             String message;
@@ -194,14 +200,18 @@ public class MainActivity extends AbstractTaskManage {
             isDueView =false;
             switchListsAndVisibility(View.INVISIBLE,View.GONE,View.VISIBLE, doneTasksList);
             String msg = "Set As "+DUE;
-            setDoneButton.setText(msg);
+            setDoneDueButton.setText(msg);
+            msg = "Your "+DONE+" List";
+            titleTextView.setText(msg);
         });
 
         viewDueTasksButton.setOnClickListener(action-> {
             isDueView=true;
             switchListsAndVisibility(View.VISIBLE,View.VISIBLE,View.GONE, tasksList);
             String msg = "Set As "+DONE;
-            setDoneButton.setText(msg);
+            setDoneDueButton.setText(msg);
+            msg = "Your "+DUE+" List";
+            titleTextView.setText(msg);
         });
     }
 
@@ -239,8 +249,6 @@ public class MainActivity extends AbstractTaskManage {
 
     private void switchVisibility(int state) {
         cleanCheckedButton.setVisibility(state);
-        setDoneButton.setVisibility(state);
+        setDoneDueButton.setVisibility(state);
     }
-// trying github push for safety
-
 }

@@ -81,11 +81,19 @@ public class CreateNewTaskActivity extends AbstractTaskManage {
 
         tasksList.add(task);
 
-        saveTasksListToPreferences();
+        this.saveTasksListToPreferences();
 
         Toast.makeText(this,"Task Added",Toast.LENGTH_LONG).show();
         clearViews();
 
+    }
+    public void saveTasksListToPreferences(){
+        Gson GSON = new Gson();
+
+        String JSON_STRING = GSON.toJson(tasksList);
+        sharedPreferencesEditor.putString(TASK_LIST_KEY, JSON_STRING);
+
+        sharedPreferencesEditor.apply();
     }
 
 

@@ -45,6 +45,7 @@ public abstract class AbstractTaskManage extends AppCompatActivity {
         sharedPreferencesEditor.putString(DONE_TASK_LIST_KEY, JSON_STRING);
 
         sharedPreferencesEditor.apply();
+
     }
     public String getTitleFromView(){
         if (titleEditText==null)
