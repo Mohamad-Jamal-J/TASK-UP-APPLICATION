@@ -12,7 +12,7 @@ public class Task {
     private String dateDue;
     private int priority;
     private String dateCreated;
-    public static int incrementalId=1;
+    public static int incrementalId=0;
 
     private boolean isDone;
 
@@ -35,7 +35,7 @@ public class Task {
     }
 
     public void setIdentifier() {
-        this.identifier = incrementalId++;
+        this.identifier = ++incrementalId;
     }
     public String getTitle() {
         return title;

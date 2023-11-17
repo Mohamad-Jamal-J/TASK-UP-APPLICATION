@@ -74,7 +74,6 @@
             style="@style/custom_editText"
             android:hint="@string/task_title"
             android:layout_marginEnd="30dp"
-            android:maxLength="30"
             android:scrollHorizontally="true"
             />
 
@@ -82,7 +81,6 @@
             android:id="@+id/detailEditText"
             style="@style/custom_editText"
             android:hint="@string/details_optional"
-            android:maxLength="60"
             android:scrollHorizontally="true" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 

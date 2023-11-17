@@ -60,30 +60,28 @@ public class MainActivity extends AbstractTaskManage {
 
         if (tasksList==null)
             tasksList=new ArrayList<>();
-        else {
-            int maxID = Task.incrementalId;
-            for (Task currTask:tasksList  ) {
-                if (maxID < currTask.getIdentifier())
-                    maxID =currTask.getIdentifier();
-            }
-            Task.incrementalId =maxID+1;
-        }
+
+
         JSON_STRING = sharedPreferences.getString(DONE_TASK_LIST_KEY,null);
         doneTasksList = GSON.fromJson(JSON_STRING,objectType);
 
         if (doneTasksList==null)
             doneTasksList=new ArrayList<>();
-        else {
-            int maxID = Task.incrementalId;
-            for (Task currTask:doneTasksList  ) {
-                if (maxID < currTask.getIdentifier())
-                    maxID =currTask.getIdentifier();
-            }
-            Task.incrementalId =maxID+1;
-        }
 
+        updateMaxTaskId();
 
+    }
 
+    private void updateMaxTaskId(){
+        int maxID = Task.incrementalId;
+        for (Task currTask:tasksList)
+            if (maxID < currTask.getIdentifier())
+                maxID =currTask.getIdentifier();
+
+        for (Task currTask:doneTasksList)
+            if (maxID < currTask.getIdentifier())
+                maxID =currTask.getIdentifier();
+        Task.incrementalId =maxID;
     }
     private void hookLayouts(){
         tasksListView = findViewById(R.id.tasksListView);
@@ -224,19 +222,18 @@ public class MainActivity extends AbstractTaskManage {
         viewHistoryButton.setOnClickListener(action->{
             isDueView =false;
             switchListsAndVisibility(View.INVISIBLE,View.GONE,View.VISIBLE, doneTasksList);
-            String msg = "Set As "+DUE;
-            setDoneDueButton.setText(msg);
-            msg = "Your "+DONE+" List";
-            titleTextView.setText(msg);
+
+            changeDoneDueButtonText();
+            changeTitleListName();
         });
 
         viewDueTasksButton.setOnClickListener(action-> {
             isDueView=true;
             switchListsAndVisibility(View.VISIBLE,View.VISIBLE,View.GONE, tasksList);
-            String msg = "Set As "+DONE;
-            setDoneDueButton.setText(msg);
-            msg = "Your "+DUE+" List";
-            titleTextView.setText(msg);
+
+            changeDoneDueButtonText();
+            changeTitleListName();
+
         });
     }
 
@@ -275,5 +272,13 @@ public class MainActivity extends AbstractTaskManage {
     private void switchVisibility(int state) {
         cleanCheckedButton.setVisibility(state);
         setDoneDueButton.setVisibility(state);
+    }
+    private void changeTitleListName(){
+        String msg = "Your " + ((isDueView)? DUE:DONE) +" List";
+        titleTextView.setText(msg);
+    }
+    private void changeDoneDueButtonText(){
+        String msg =  "Set As "+((isDueView)? DONE:DUE);
+        setDoneDueButton.setText(msg);
     }
 }
