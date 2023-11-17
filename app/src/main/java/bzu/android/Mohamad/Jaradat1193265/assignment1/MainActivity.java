@@ -241,6 +241,6 @@ public class MainActivity extends AbstractTaskManage {
         cleanCheckedButton.setVisibility(state);
         setDoneButton.setVisibility(state);
     }
-
+// trying github push for safety
 
 }
