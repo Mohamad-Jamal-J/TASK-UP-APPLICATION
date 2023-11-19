@@ -33,7 +33,6 @@ public class MainActivity extends AbstractTaskManage {
     private boolean editModeOn;
     private boolean isDueView;
     private TextView titleTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
