@@ -324,6 +324,4 @@ public class MainActivity extends AbstractTaskManage {
         String msg =  "Set As "+((isDueView)? DONE:DUE);
         setDoneDueButton.setText(msg);
     }
-
-
 }
