@@ -132,7 +132,7 @@ public class MainActivity extends AbstractTaskManage {
         taskListAdapter = new ArrayAdapter<>(
                 this, choiceMode, list);
         AdapterView.OnItemClickListener itemClickListener =
-                (parent, view, position, id) -> oneClickAdapterListener(list, (CheckedTextView) view, position);
+                (parent, view, position, id) -> oneClickAdapterListener(list, view, position);
 
         AdapterView.OnItemLongClickListener itemLongClickListener =
                 (parent, view, position, id)-> longClickAdapterListener(position);
@@ -145,10 +145,11 @@ public class MainActivity extends AbstractTaskManage {
     // this method will be set to a onClickListener function for the list adapter view
     // when edit mode is one, the user can select multiple items simply by clicking on them.
     // when it's off, a simple dialog will be displayed to show the full details of the selected task
-    private void oneClickAdapterListener(List<Task> list, CheckedTextView view, int position) {
+    private void oneClickAdapterListener(List<Task> list, View view, int position) {
         if (editModeOn){
            Task task = list.get(position);
-            if (view.isChecked()){
+           CheckedTextView checkedTextView = (CheckedTextView) view;
+            if (checkedTextView.isChecked()){
                 checkedTasks.add(task);
             }else {
                 checkedTasks.remove(task);
