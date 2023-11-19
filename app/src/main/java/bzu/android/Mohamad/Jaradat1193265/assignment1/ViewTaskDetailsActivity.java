@@ -30,6 +30,8 @@ public class ViewTaskDetailsActivity extends AbstractTaskManage {
         setLayoutsListeners();
     }
 
+    // this method will retrieve the date sent from the previous activity such as
+    // (due & done task lists, the previous due/done view and the position of the selected task)
     private void loadTasksListFromIntent() {
         Intent intent = getIntent();
         Gson GSON = new Gson();
@@ -65,17 +67,14 @@ public class ViewTaskDetailsActivity extends AbstractTaskManage {
         }
     }
 
-    // this method hooks (references) the views in activity_create_new_task.xml
-    private void hookLayouts(){
-        backButton = findViewById(R.id.abortTaskButton);
-        titleEditText = findViewById(R.id.titleEditText);
-        detailEditText =findViewById(R.id.detailEditText);
-        datePicker = findViewById(R.id.datePicker);
-        priorityRadioGroup = findViewById(R.id.radioGroup);
+    // this method hooks (references) the views in activity_view_task_details.xml
+    public void hookLayouts(){
+        super.hookLayouts();
         updateTaskButton = findViewById(R.id.updateTaskButton);
-        datePicker.setMinDate(System.currentTimeMillis());
         radioGroupStatus = findViewById(R.id.radioGroupStatus);
     }
+
+    //this method will initiate the views with the data of the current task
     private void initializeLayoutsWithInfo() {
         updateTaskButton = findViewById(R.id.updateTaskButton);
 
@@ -96,6 +95,7 @@ public class ViewTaskDetailsActivity extends AbstractTaskManage {
                 radioGroupStatus.getChildAt(index).getId()
         );
     }
+
     // this method sets the click listeners for the views whenever an action is made on them.
     private void setLayoutsListeners() {
 
@@ -108,6 +108,7 @@ public class ViewTaskDetailsActivity extends AbstractTaskManage {
         });
     }
 
+    // this method will apply the changes on the current task's details the were made (if any were done)
     private void updateTaskAction(View view){
         titleEditText.setHintTextColor(getColor( R.color.alertHintColor));
         String title = getTitleFromView();

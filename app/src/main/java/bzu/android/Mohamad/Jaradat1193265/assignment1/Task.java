@@ -99,6 +99,7 @@ public class Task {
         return "\nTask: " + title +
                         "\n\nDue: " + dateDue+"\t\t\t\t\t\t\t\tPriority: " + prioString ;
     }
+    // this method is for full details view of the object
     public String speacialToString() {
         String prioString;
         if (priority==1)
