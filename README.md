@@ -23,11 +23,11 @@ Welcome to Task-Up App, a convenient tool for organizing and managing your tasks
 
 ## Mockups
 <br/><br/>
-![mockup1.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Fmockup1.png)
----
+![mock1.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Fmock1.png)
+
 <br/><br/>
-![mockup2.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Fmockup2.png)
----
+![mock2.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Fmock2.png)
+
 
 
 ## Annotated Screenshots
