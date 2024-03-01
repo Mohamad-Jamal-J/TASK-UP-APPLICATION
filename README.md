@@ -20,6 +20,16 @@ Welcome to Task-Up App, a convenient tool for organizing and managing your tasks
 - **Input Validation and Error Handling**: Implements input validation and error handling mechanisms to enhance application security and stability.
 - **Code Quality and Documentation**: Maintains well-documented code with clear method descriptions and adheres to best coding practices for readability and maintainability.
 
+
+## Mockups
+<br/><br/>
+![mockup1.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Fmockup1.png)
+---
+<br/><br/>
+![mockup2.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Fmockup2.png)
+---
+
+
 ## Annotated Screenshots
 
 ### Main Activity
@@ -50,10 +60,5 @@ Welcome to Task-Up App, a convenient tool for organizing and managing your tasks
 <br/><br/>
 ![task%20preview.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Ftask%20preview.png)
 ---
-
-
-
-
-
 
 Thank you for choosing the Task UP App for your task management needs. Enjoy managing your tasks efficiently.
