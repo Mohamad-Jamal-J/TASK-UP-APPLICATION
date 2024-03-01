@@ -4,20 +4,19 @@ Welcome to the Task Manager App, a convenient tool for organizing and managing y
 
 ## Key Features for Users
 
-- **View All Due Tasks**: Easily access and view all tasks that are due for completion.
 - **Add New Task**: Seamlessly create and add new tasks with details such as title, description, due date, and priority.
-- **Change Task Status**: Update the status of tasks from 'due' to 'done' and vice versa, or delete them.
-- **Two Activities**: The app comprises two activities, providing a smooth and simple user experience.
-- **Dynamic ListViews**: Utilizes ListViews that are dynamically populated with task data for easy viewing and management.
-- **Local Storage with Shared Preferences and GSON**: All tasks are persisted to local storage using Shared Preferences and GSON for data consistency and retrieval.
-- **Realistic Task Management**: Offers practical task management functionalities that cater to real user needs.
+- **List All Tasks**: Easily access and view all tasks that are due/done, where each category has its own list for effortless navigation.
+- **View Task Details:**: Access detailed information about the desired task, including title, description, due date, priority, and status, allowing for thorough task management and organization.
+- **Efficient Task Management**: Modify the status of tasks from 'due' to 'done' and vice versa, or delete them. This feature includes the option for multi-selection, enabling users to efficiently manage multiple tasks at once.
 
 ## For Developers
 
+- **Two Activities**: The app comprises two activities, providing a smooth and simple user experience.
+- **Dynamic ListViews**: Utilizes ListViews that are dynamically populated with task data for easy viewing and management.
 - **Activity Lifecycle Management**: Implements robust activity lifecycle management for smooth transitions and efficient resource handling.
-- **Local Storage and Shared Preferences**: Utilizes Shared Preferences to store task data locally on the device, ensuring quick access and data persistence.
-- **GSON Integration**: Implements GSON library for efficient JSON serialization and deserialization of task data.
-- **User Interface Design**: Focuses on intuitive and user-friendly UI design with dynamic ListViews and interactive elements.
+- **Local Storage**: All tasks are persisted to local storage using Shared Preferences for data consistency and retrieval.
+- **GSON Integration**: Utilizes GSON library for efficient JSON serialization and deserialization of tasks and other necessary user data.
+- **User Interface Design**: Focuses on intuitive and user-friendly UI design with dynamic ListViews and other interactive views.
 - **Input Validation and Error Handling**: Implements input validation and error handling mechanisms to enhance application security and stability.
 - **Code Quality and Documentation**: Maintains well-documented code with clear method descriptions and adheres to best coding practices for readability and maintainability.
 
