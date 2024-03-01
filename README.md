@@ -1,6 +1,6 @@
 # Task-Up App (Android Application - Java)
 
-Welcome to the Task Manager App, a convenient tool for organizing and managing your tasks effectively on your Android device.
+Welcome to Task-Up App, a convenient tool for organizing and managing your tasks effectively on your Android device.
 
 ## Key Features for Users
 
