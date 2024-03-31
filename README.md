@@ -60,5 +60,7 @@ Welcome to Task-Up App, a convenient tool for organizing and managing your tasks
 <br/><br/>
 ![task%20preview.png](app%2Fsrc%2Fmain%2Fres%2Fannotated_screenshots%2Ftask%20preview.png)
 ---
-
+## App Walkthrough video
+[Watch the App Walkthrough Video](https://drive.google.com/file/d/1n_t6J80bBMfuuFIXOXplpDhc9v7rC3Fg/view)
+<br/><br/>
 Thank you for choosing the Task UP App for your task management needs. Enjoy managing your tasks efficiently.
